@@ -10,7 +10,7 @@ class Register(models.Model):
     Address = models.CharField(max_length=100)
     DOB = models.DateField(auto_created=False,auto_now=False)
     DOJ = models.DateTimeField(auto_created=False,auto_now=False,default=dtm.now)
-    # Profile_pic = models.ImageField('media')
-
-    
-
+    Profile_pic = models.ImageField('media')
+   
+    def __str__(self):
+        return self.Users.username
