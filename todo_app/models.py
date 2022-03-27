@@ -14,3 +14,20 @@ class Register(models.Model):
    
     def __str__(self):
         return self.Users.username
+
+class Todo(models.Model):
+    User_details = models.ForeignKey(Register, on_delete=models.CASCADE,related_name = 'todo')
+    Title = models.CharField(max_length=100 ,blank=True,null=True)
+    Content = models.TextField()
+    Create_time = models.DateTimeField(auto_now=False, auto_now_add=False,default=dtm.now)
+    Completed = models.BooleanField(default=False)
+    Completion_date = models.DateTimeField(auto_now=False, auto_now_add=False,blank=True,null=True)
+
+    def __str__(self):
+        return self.Title + ' | ' + self.User_details.Users.username
+
+
+
+
+
+
