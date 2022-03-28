@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path,include
 from .views import home,login_view,logout_view
 from . import views
+from .import views_api
 # from 
 urlpatterns = [
     path('', home, name='home'),
@@ -14,5 +15,9 @@ urlpatterns = [
     path('edit/<int:pk>', views.edit),
     path('edit_todo', views.edit_todo, name='edit_todo'),
     path('delete/<int:pk>', views.delete),
+
+    # API request
+    path('api/toto_api', views_api.TodoList.as_view()),
+
 
 ] 
