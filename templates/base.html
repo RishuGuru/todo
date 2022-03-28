@@ -24,11 +24,21 @@
             <li class="nav-item active">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
+            {% if request.user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="{% url 'create' %}">Create todo</a> 
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'todolist' %}">Todo list</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Completed_todo' %}">Completed todo</a>
             </li>
             
           </ul>
+          {% else %}
+        </ul>
+          {% endif %}
           {% if request.user.is_authenticated %}
           <li class="nav-item">
             <a href= "{% url 'logout' %}">
